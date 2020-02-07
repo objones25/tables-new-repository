@@ -60,6 +60,7 @@ for student in studentArray:
                 tables_checked += 1
             else:
                 randomInttwo = 0
+                tables_checked +=1
         #if any other table is full, check next table  
         elif len(tableArrayTwo[randomInttwo]) >= 10:
             if randomInttwo <= 30:
@@ -67,6 +68,7 @@ for student in studentArray:
                 tables_checked += 1
             else:
                 randomInttwo = 0 
+                tables_checked +=1
         #if table 0 or 1 is full, check next table 
         elif randomInttwo == randomInt:
             if randomInttwo <= 30:
@@ -99,7 +101,8 @@ for student in studentArray:
                 randomIntthree += 1
                 tables_checked += 1
             else:
-                randomIntthree = 0  
+                randomIntthree = 0
+                tables_checked +=1  
         #if any other table is full, check next table     
         elif (len(tableArrayThree[randomIntthree]) >= 10):
             if randomIntthree <= 30:
