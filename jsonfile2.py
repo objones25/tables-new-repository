@@ -28,12 +28,12 @@ with open('Dinner Seating - Student List 2018-19.csv', mode='r', encoding='utf-8
         else:
             waiter = False
         if current_table == 0:
-            studentDict['kitchen crew'].update({row[1] +' '+ row[0]: 'kitchen crew'})        
+            studentDict['kitchen crew'].update({row[1]+' '+row[0]: 'kitchen crew'})        
         else:
             if waiter == True:
-                studentDict['table'+str(current_table)].update({row[1] +' '+ row[0]: 'table'+str(current_table)+'w'})
+                studentDict['table'+str(current_table)].update({row[1]+' '+row[0]: 'table'+str(current_table)+'w'})
             else:
-                studentDict['table'+str(current_table)].update({row[1] +' '+ row[0]: 'table'+str(current_table)})
+                studentDict['table'+str(current_table)].update({row[1]+' '+row[0]: 'table'+str(current_table)})
         if current_table < 31:
             current_table += 1
         else:
