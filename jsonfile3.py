@@ -1,21 +1,9 @@
 import json
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import csv
-import random
-from dataclasses import dataclass
 
-@dataclass
-class Student:
-    firstName: str
-    lastName: str
 
 studentDict = {}
-
-for i in range(0,32):
-    if i == 0:
-        studentDict['kitchen_crew'] = dict()      
-    else:
-        studentDict['table'+str(i)] = dict()
 
 with open('Dinner Seating - Student List 2018-19.csv', mode='r', encoding='utf-8-sig') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -28,12 +16,12 @@ with open('Dinner Seating - Student List 2018-19.csv', mode='r', encoding='utf-8
         else:
             waiter = False
         if current_table == 0:
-            studentDict['kitchen_crew'].update({'student'+str(person_number): row[1]+' '+row[0]})        
+            studentDict.update({row[1]+' '+row[0]:'kitchen_crew'})        
         else:
             if waiter == True:
-                studentDict['table'+str(current_table)].update({'student'+str(person_number)+'w': row[1]+' '+row[0]})
+                studentDict.update({row[1]+' '+row[0]:'table'+str(current_table)+'w'})
             else:
-                studentDict['table'+str(current_table)].update({'student'+str(person_number): row[1]+' '+row[0]})
+                studentDict.update({row[1]+' '+row[0]:'table'+str(current_table)})
         if current_table < 31:
             current_table += 1
         else:
